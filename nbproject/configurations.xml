@@ -1,0 +1,1070 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configurationDescriptor version="79">
+  <logicalFolder name="root" displayName="root" projectFiles="true" kind="ROOT">
+    <df name="libSDLXenon" root=".">
+      <df name="acinclude">
+      </df>
+      <df name="build-scripts">
+      </df>
+      <df name="docs">
+        <df name="html">
+        </df>
+        <df name="images">
+        </df>
+        <df name="man3">
+        </df>
+      </df>
+      <df name="include">
+        <in>SDL.h</in>
+        <in>SDL_active.h</in>
+        <in>SDL_audio.h</in>
+        <in>SDL_byteorder.h</in>
+        <in>SDL_cdrom.h</in>
+        <in>SDL_config.h</in>
+        <in>SDL_config_dreamcast.h</in>
+        <in>SDL_config_macos.h</in>
+        <in>SDL_config_macosx.h</in>
+        <in>SDL_config_minimal.h</in>
+        <in>SDL_config_nds.h</in>
+        <in>SDL_config_os2.h</in>
+        <in>SDL_config_symbian.h</in>
+        <in>SDL_config_win32.h</in>
+        <in>SDL_copying.h</in>
+        <in>SDL_cpuinfo.h</in>
+        <in>SDL_endian.h</in>
+        <in>SDL_error.h</in>
+        <in>SDL_events.h</in>
+        <in>SDL_getenv.h</in>
+        <in>SDL_joystick.h</in>
+        <in>SDL_keyboard.h</in>
+        <in>SDL_keysym.h</in>
+        <in>SDL_loadso.h</in>
+        <in>SDL_main.h</in>
+        <in>SDL_mouse.h</in>
+        <in>SDL_mutex.h</in>
+        <in>SDL_name.h</in>
+        <in>SDL_opengl.h</in>
+        <in>SDL_platform.h</in>
+        <in>SDL_quit.h</in>
+        <in>SDL_rwops.h</in>
+        <in>SDL_stdinc.h</in>
+        <in>SDL_syswm.h</in>
+        <in>SDL_thread.h</in>
+        <in>SDL_timer.h</in>
+        <in>SDL_types.h</in>
+        <in>SDL_version.h</in>
+        <in>SDL_video.h</in>
+        <in>begin_code.h</in>
+        <in>close_code.h</in>
+      </df>
+      <df name="src">
+        <df name="audio">
+          <df name="alsa">
+            <in>SDL_alsa_audio.c</in>
+            <in>SDL_alsa_audio.h</in>
+          </df>
+          <df name="arts">
+            <in>SDL_artsaudio.c</in>
+            <in>SDL_artsaudio.h</in>
+          </df>
+          <df name="baudio">
+            <in>SDL_beaudio.cc</in>
+            <in>SDL_beaudio.h</in>
+          </df>
+          <df name="bsd">
+            <in>SDL_bsdaudio.c</in>
+            <in>SDL_bsdaudio.h</in>
+          </df>
+          <df name="dart">
+            <in>SDL_dart.c</in>
+            <in>SDL_dart.h</in>
+          </df>
+          <df name="dc">
+            <in>SDL_dcaudio.c</in>
+            <in>SDL_dcaudio.h</in>
+            <in>aica.c</in>
+            <in>aica.h</in>
+          </df>
+          <df name="disk">
+            <in>SDL_diskaudio.c</in>
+            <in>SDL_diskaudio.h</in>
+          </df>
+          <df name="dma">
+            <in>SDL_dmaaudio.c</in>
+            <in>SDL_dmaaudio.h</in>
+          </df>
+          <df name="dmedia">
+            <in>SDL_irixaudio.c</in>
+            <in>SDL_irixaudio.h</in>
+          </df>
+          <df name="dsp">
+            <in>SDL_dspaudio.c</in>
+            <in>SDL_dspaudio.h</in>
+          </df>
+          <df name="dummy">
+            <in>SDL_dummyaudio.c</in>
+            <in>SDL_dummyaudio.h</in>
+          </df>
+          <df name="esd">
+            <in>SDL_esdaudio.c</in>
+            <in>SDL_esdaudio.h</in>
+          </df>
+          <df name="macosx">
+            <in>SDL_coreaudio.c</in>
+            <in>SDL_coreaudio.h</in>
+          </df>
+          <df name="macrom">
+            <in>SDL_romaudio.c</in>
+            <in>SDL_romaudio.h</in>
+          </df>
+          <df name="mint">
+            <in>SDL_mintaudio.c</in>
+            <in>SDL_mintaudio.h</in>
+            <in>SDL_mintaudio_dma8.c</in>
+            <in>SDL_mintaudio_dma8.h</in>
+            <in>SDL_mintaudio_gsxb.c</in>
+            <in>SDL_mintaudio_gsxb.h</in>
+            <in>SDL_mintaudio_it.S</in>
+            <in>SDL_mintaudio_mcsn.c</in>
+            <in>SDL_mintaudio_mcsn.h</in>
+            <in>SDL_mintaudio_stfa.c</in>
+            <in>SDL_mintaudio_stfa.h</in>
+            <in>SDL_mintaudio_xbios.c</in>
+          </df>
+          <df name="mme">
+            <in>SDL_mmeaudio.c</in>
+            <in>SDL_mmeaudio.h</in>
+          </df>
+          <df name="nas">
+            <in>SDL_nasaudio.c</in>
+            <in>SDL_nasaudio.h</in>
+          </df>
+          <df name="nds">
+            <in>SDL_ndsaudio.c</in>
+            <in>SDL_ndsaudio.h</in>
+            <in>sound9.c</in>
+            <in>soundcommon.h</in>
+          </df>
+          <df name="nto">
+            <in>SDL_nto_audio.c</in>
+            <in>SDL_nto_audio.h</in>
+          </df>
+          <df name="paudio">
+            <in>SDL_paudio.c</in>
+            <in>SDL_paudio.h</in>
+          </df>
+          <df name="pulse">
+            <in>SDL_pulseaudio.c</in>
+            <in>SDL_pulseaudio.h</in>
+          </df>
+          <df name="sun">
+            <in>SDL_sunaudio.c</in>
+            <in>SDL_sunaudio.h</in>
+          </df>
+          <df name="symbian">
+            <in>SDL_epocaudio.cpp</in>
+            <in>SDL_epocaudio.h</in>
+            <in>streamplayer.cpp</in>
+            <in>streamplayer.h</in>
+          </df>
+          <df name="ums">
+            <in>SDL_umsaudio.c</in>
+            <in>SDL_umsaudio.h</in>
+          </df>
+          <df name="windib">
+            <in>SDL_dibaudio.c</in>
+            <in>SDL_dibaudio.h</in>
+          </df>
+          <df name="windx5">
+            <in>SDL_dx5audio.c</in>
+            <in>SDL_dx5audio.h</in>
+            <in>directx.h</in>
+          </df>
+          <in>SDL_audio.c</in>
+          <in>SDL_audio_c.h</in>
+          <in>SDL_audiocvt.c</in>
+          <in>SDL_audiodev.c</in>
+          <in>SDL_audiodev_c.h</in>
+          <in>SDL_audiomem.h</in>
+          <in>SDL_mixer.c</in>
+          <in>SDL_mixer_MMX.c</in>
+          <in>SDL_mixer_MMX.h</in>
+          <in>SDL_mixer_MMX_VC.c</in>
+          <in>SDL_mixer_MMX_VC.h</in>
+          <in>SDL_mixer_m68k.c</in>
+          <in>SDL_mixer_m68k.h</in>
+          <in>SDL_sysaudio.h</in>
+          <in>SDL_wave.c</in>
+          <in>SDL_wave.h</in>
+        </df>
+        <df name="cdrom">
+          <df name="aix">
+            <in>SDL_syscdrom.c</in>
+          </df>
+          <df name="beos">
+            <in>SDL_syscdrom.cc</in>
+          </df>
+          <df name="bsdi">
+            <in>SDL_syscdrom.c</in>
+          </df>
+          <df name="dc">
+            <in>SDL_syscdrom.c</in>
+          </df>
+          <df name="dummy">
+            <in>SDL_syscdrom.c</in>
+          </df>
+          <df name="freebsd">
+            <in>SDL_syscdrom.c</in>
+          </df>
+          <df name="linux">
+            <in>SDL_syscdrom.c</in>
+          </df>
+          <df name="macos">
+            <in>SDL_syscdrom.c</in>
+            <in>SDL_syscdrom_c.h</in>
+          </df>
+          <df name="macosx">
+            <in>AudioFilePlayer.c</in>
+            <in>AudioFilePlayer.h</in>
+            <in>AudioFileReaderThread.c</in>
+            <in>CDPlayer.c</in>
+            <in>CDPlayer.h</in>
+            <in>SDLOSXCAGuard.c</in>
+            <in>SDLOSXCAGuard.h</in>
+            <in>SDL_syscdrom.c</in>
+            <in>SDL_syscdrom_c.h</in>
+          </df>
+          <df name="mint">
+            <in>SDL_syscdrom.c</in>
+          </df>
+          <df name="openbsd">
+            <in>SDL_syscdrom.c</in>
+          </df>
+          <df name="os2">
+            <in>SDL_syscdrom.c</in>
+          </df>
+          <df name="osf">
+            <in>SDL_syscdrom.c</in>
+          </df>
+          <df name="qnx">
+            <in>SDL_syscdrom.c</in>
+          </df>
+          <df name="win32">
+            <in>SDL_syscdrom.c</in>
+          </df>
+          <in>SDL_cdrom.c</in>
+          <in>SDL_syscdrom.h</in>
+        </df>
+        <df name="cpuinfo">
+          <in>SDL_cpuinfo.c</in>
+        </df>
+        <df name="events">
+          <in>SDL_active.c</in>
+          <in>SDL_events.c</in>
+          <in>SDL_events_c.h</in>
+          <in>SDL_expose.c</in>
+          <in>SDL_keyboard.c</in>
+          <in>SDL_mouse.c</in>
+          <in>SDL_quit.c</in>
+          <in>SDL_resize.c</in>
+          <in>SDL_sysevents.h</in>
+        </df>
+        <df name="file">
+          <in>SDL_rwops.c</in>
+        </df>
+        <df name="hermes">
+          <in>HeadMMX.h</in>
+          <in>HeadX86.h</in>
+          <in>mmx_main.asm</in>
+          <in>mmxp2_32.asm</in>
+          <in>x86_main.asm</in>
+          <in>x86p_16.asm</in>
+          <in>x86p_32.asm</in>
+        </df>
+        <df name="joystick">
+          <df name="beos">
+            <in>SDL_bejoystick.cc</in>
+          </df>
+          <df name="bsd">
+            <in>SDL_sysjoystick.c</in>
+          </df>
+          <df name="darwin">
+            <df name="10.3.9-FIX">
+              <in>IOHIDLib.h</in>
+            </df>
+            <in>SDL_sysjoystick.c</in>
+          </df>
+          <df name="dc">
+            <in>SDL_sysjoystick.c</in>
+          </df>
+          <df name="dummy">
+            <in>SDL_sysjoystick.c</in>
+          </df>
+          <df name="linux">
+            <in>SDL_sysjoystick.c</in>
+          </df>
+          <df name="macos">
+            <in>SDL_sysjoystick.c</in>
+          </df>
+          <df name="mint">
+            <in>SDL_sysjoystick.c</in>
+          </df>
+          <df name="nds">
+            <in>SDL_sysjoystick.c</in>
+          </df>
+          <df name="os2">
+            <in>SDL_sysjoystick.c</in>
+            <in>joyos2.h</in>
+          </df>
+          <df name="riscos">
+            <in>SDL_sysjoystick.c</in>
+          </df>
+          <df name="win32">
+            <in>SDL_mmjoystick.c</in>
+          </df>
+          <in>SDL_joystick.c</in>
+          <in>SDL_joystick_c.h</in>
+          <in>SDL_sysjoystick.h</in>
+        </df>
+        <df name="loadso">
+          <df name="beos">
+            <in>SDL_sysloadso.c</in>
+          </df>
+          <df name="dlopen">
+            <in>SDL_sysloadso.c</in>
+          </df>
+          <df name="dummy">
+            <in>SDL_sysloadso.c</in>
+          </df>
+          <df name="macos">
+            <in>SDL_sysloadso.c</in>
+          </df>
+          <df name="macosx">
+            <in>SDL_dlcompat.c</in>
+          </df>
+          <df name="mint">
+            <in>SDL_sysloadso.c</in>
+          </df>
+          <df name="os2">
+            <in>SDL_sysloadso.c</in>
+          </df>
+          <df name="win32">
+            <in>SDL_sysloadso.c</in>
+          </df>
+        </df>
+        <df name="main">
+          <df name="beos">
+            <in>SDL_BeApp.cc</in>
+            <in>SDL_BeApp.h</in>
+          </df>
+          <df name="dummy">
+            <in>SDL_dummy_main.c</in>
+          </df>
+          <df name="macos">
+            <df name="exports">
+            </df>
+            <in>SDL_main.c</in>
+          </df>
+          <df name="macosx">
+            <df name="SDLMain.nib">
+            </df>
+            <in>SDLMain.h</in>
+            <in>SDLMain.m</in>
+          </df>
+          <df name="qtopia">
+            <in>SDL_qtopia_main.cc</in>
+          </df>
+          <df name="symbian">
+            <df name="EKA1">
+              <in>SDL_main.cpp</in>
+            </df>
+            <df name="EKA2">
+              <in>SDL_main.cpp</in>
+              <in>sdlexe.cpp</in>
+              <in>sdllib.cpp</in>
+              <in>vectorbuffer.cpp</in>
+              <in>vectorbuffer.h</in>
+            </df>
+          </df>
+          <df name="win32">
+            <in>SDL_win32_main.c</in>
+          </df>
+        </df>
+        <df name="stdlib">
+          <in>SDL_getenv.c</in>
+          <in>SDL_iconv.c</in>
+          <in>SDL_malloc.c</in>
+          <in>SDL_qsort.c</in>
+          <in>SDL_stdlib.c</in>
+          <in>SDL_string.c</in>
+        </df>
+        <df name="thread">
+          <df name="beos">
+            <in>SDL_syssem.c</in>
+            <in>SDL_systhread.c</in>
+            <in>SDL_systhread_c.h</in>
+          </df>
+          <df name="dc">
+            <in>SDL_syscond.c</in>
+            <in>SDL_syscond_c.h</in>
+            <in>SDL_sysmutex.c</in>
+            <in>SDL_sysmutex_c.h</in>
+            <in>SDL_syssem.c</in>
+            <in>SDL_syssem_c.h</in>
+            <in>SDL_systhread.c</in>
+            <in>SDL_systhread_c.h</in>
+          </df>
+          <df name="generic">
+            <in>SDL_syscond.c</in>
+            <in>SDL_sysmutex.c</in>
+            <in>SDL_sysmutex_c.h</in>
+            <in>SDL_syssem.c</in>
+            <in>SDL_systhread.c</in>
+            <in>SDL_systhread_c.h</in>
+          </df>
+          <df name="irix">
+            <in>SDL_syssem.c</in>
+            <in>SDL_systhread.c</in>
+            <in>SDL_systhread_c.h</in>
+          </df>
+          <df name="os2">
+            <in>SDL_syscond.c</in>
+            <in>SDL_syscond_c.h</in>
+            <in>SDL_sysmutex.c</in>
+            <in>SDL_syssem.c</in>
+            <in>SDL_systhread.c</in>
+            <in>SDL_systhread_c.h</in>
+          </df>
+          <df name="pth">
+            <in>SDL_syscond.c</in>
+            <in>SDL_sysmutex.c</in>
+            <in>SDL_sysmutex_c.h</in>
+            <in>SDL_systhread.c</in>
+            <in>SDL_systhread_c.h</in>
+          </df>
+          <df name="pthread">
+            <in>SDL_syscond.c</in>
+            <in>SDL_sysmutex.c</in>
+            <in>SDL_sysmutex_c.h</in>
+            <in>SDL_syssem.c</in>
+            <in>SDL_systhread.c</in>
+            <in>SDL_systhread_c.h</in>
+          </df>
+          <df name="riscos">
+            <in>SDL_syscond.c</in>
+            <in>SDL_sysmutex.c</in>
+            <in>SDL_sysmutex_c.h</in>
+            <in>SDL_syssem.c</in>
+            <in>SDL_systhread.c</in>
+            <in>SDL_systhread_c.h</in>
+          </df>
+          <df name="symbian">
+            <in>SDL_sysmutex.cpp</in>
+            <in>SDL_syssem.cpp</in>
+            <in>SDL_systhread.cpp</in>
+            <in>SDL_systhread_c.h</in>
+          </df>
+          <df name="win32">
+            <in>SDL_sysmutex.c</in>
+            <in>SDL_syssem.c</in>
+            <in>SDL_systhread.c</in>
+            <in>SDL_systhread_c.h</in>
+            <in>win_ce_semaphore.c</in>
+            <in>win_ce_semaphore.h</in>
+          </df>
+          <in>SDL_systhread.h</in>
+          <in>SDL_thread.c</in>
+          <in>SDL_thread_c.h</in>
+        </df>
+        <df name="timer">
+          <df name="beos">
+            <in>SDL_systimer.c</in>
+          </df>
+          <df name="dc">
+            <in>SDL_systimer.c</in>
+          </df>
+          <df name="dummy">
+            <in>SDL_systimer.c</in>
+          </df>
+          <df name="macos">
+            <in>FastTimes.c</in>
+            <in>FastTimes.h</in>
+            <in>SDL_MPWtimer.c</in>
+            <in>SDL_systimer.c</in>
+          </df>
+          <df name="mint">
+            <in>SDL_systimer.c</in>
+            <in>SDL_vbltimer.S</in>
+            <in>SDL_vbltimer_s.h</in>
+          </df>
+          <df name="nds">
+            <in>SDL_systimer.c</in>
+          </df>
+          <df name="os2">
+            <in>SDL_systimer.c</in>
+          </df>
+          <df name="riscos">
+            <in>SDL_systimer.c</in>
+          </df>
+          <df name="symbian">
+            <in>SDL_systimer.cpp</in>
+          </df>
+          <df name="unix">
+            <in>SDL_systimer.c</in>
+          </df>
+          <df name="win32">
+            <in>SDL_systimer.c</in>
+          </df>
+          <df name="wince">
+            <in>SDL_systimer.c</in>
+          </df>
+          <in>SDL_systimer.h</in>
+          <in>SDL_timer.c</in>
+          <in>SDL_timer_c.h</in>
+        </df>
+        <df name="video">
+          <df name="aalib">
+            <in>SDL_aaevents.c</in>
+            <in>SDL_aaevents_c.h</in>
+            <in>SDL_aamouse.c</in>
+            <in>SDL_aamouse_c.h</in>
+            <in>SDL_aavideo.c</in>
+            <in>SDL_aavideo.h</in>
+          </df>
+          <df name="ataricommon">
+            <in>SDL_ataric2p.S</in>
+            <in>SDL_ataric2p_s.h</in>
+            <in>SDL_ataridevmouse.c</in>
+            <in>SDL_ataridevmouse_c.h</in>
+            <in>SDL_atarieddi.S</in>
+            <in>SDL_atarieddi_s.h</in>
+            <in>SDL_atarievents.c</in>
+            <in>SDL_atarievents_c.h</in>
+            <in>SDL_atarigl.c</in>
+            <in>SDL_atarigl_c.h</in>
+            <in>SDL_atarikeys.h</in>
+            <in>SDL_atarimxalloc.c</in>
+            <in>SDL_atarimxalloc_c.h</in>
+            <in>SDL_biosevents.c</in>
+            <in>SDL_biosevents_c.h</in>
+            <in>SDL_gemdosevents.c</in>
+            <in>SDL_gemdosevents_c.h</in>
+            <in>SDL_ikbdevents.c</in>
+            <in>SDL_ikbdevents_c.h</in>
+            <in>SDL_ikbdinterrupt.S</in>
+            <in>SDL_ikbdinterrupt_s.h</in>
+            <in>SDL_xbiosevents.c</in>
+            <in>SDL_xbiosevents_c.h</in>
+            <in>SDL_xbiosinterrupt.S</in>
+            <in>SDL_xbiosinterrupt_s.h</in>
+          </df>
+          <df name="bwindow">
+            <in>SDL_BView.h</in>
+            <in>SDL_BWin.h</in>
+            <in>SDL_lowvideo.h</in>
+            <in>SDL_sysevents.cc</in>
+            <in>SDL_sysevents_c.h</in>
+            <in>SDL_sysmouse.cc</in>
+            <in>SDL_sysmouse_c.h</in>
+            <in>SDL_sysvideo.cc</in>
+            <in>SDL_syswm.cc</in>
+            <in>SDL_syswm_c.h</in>
+            <in>SDL_sysyuv.cc</in>
+            <in>SDL_sysyuv.h</in>
+          </df>
+          <df name="caca">
+            <in>SDL_cacaevents.c</in>
+            <in>SDL_cacaevents_c.h</in>
+            <in>SDL_cacavideo.c</in>
+            <in>SDL_cacavideo.h</in>
+          </df>
+          <df name="dc">
+            <in>SDL_dcevents.c</in>
+            <in>SDL_dcevents_c.h</in>
+            <in>SDL_dcmouse.c</in>
+            <in>SDL_dcmouse_c.h</in>
+            <in>SDL_dcvideo.c</in>
+            <in>SDL_dcvideo.h</in>
+          </df>
+          <df name="dga">
+            <in>SDL_dgaevents.c</in>
+            <in>SDL_dgaevents_c.h</in>
+            <in>SDL_dgamouse.c</in>
+            <in>SDL_dgamouse_c.h</in>
+            <in>SDL_dgavideo.c</in>
+            <in>SDL_dgavideo.h</in>
+          </df>
+          <df name="directfb">
+            <in>SDL_DirectFB_events.c</in>
+            <in>SDL_DirectFB_events.h</in>
+            <in>SDL_DirectFB_keys.h</in>
+            <in>SDL_DirectFB_video.c</in>
+            <in>SDL_DirectFB_video.h</in>
+            <in>SDL_DirectFB_yuv.c</in>
+            <in>SDL_DirectFB_yuv.h</in>
+          </df>
+          <df name="dummy">
+            <in>SDL_nullevents.c</in>
+            <in>SDL_nullevents_c.h</in>
+            <in>SDL_nullmouse.c</in>
+            <in>SDL_nullmouse_c.h</in>
+            <in>SDL_nullvideo.c</in>
+            <in>SDL_nullvideo.h</in>
+          </df>
+          <df name="fbcon">
+            <in>3dfx_mmio.h</in>
+            <in>3dfx_regs.h</in>
+            <in>SDL_fb3dfx.c</in>
+            <in>SDL_fb3dfx.h</in>
+            <in>SDL_fbelo.c</in>
+            <in>SDL_fbelo.h</in>
+            <in>SDL_fbevents.c</in>
+            <in>SDL_fbevents_c.h</in>
+            <in>SDL_fbkeys.h</in>
+            <in>SDL_fbmatrox.c</in>
+            <in>SDL_fbmatrox.h</in>
+            <in>SDL_fbmouse.c</in>
+            <in>SDL_fbmouse_c.h</in>
+            <in>SDL_fbriva.c</in>
+            <in>SDL_fbriva.h</in>
+            <in>SDL_fbvideo.c</in>
+            <in>SDL_fbvideo.h</in>
+            <in>matrox_mmio.h</in>
+            <in>matrox_regs.h</in>
+            <in>riva_mmio.h</in>
+            <in>riva_regs.h</in>
+          </df>
+          <df name="gapi">
+            <in>SDL_gapivideo.c</in>
+            <in>SDL_gapivideo.h</in>
+          </df>
+          <df name="gem">
+            <in>SDL_gemevents.c</in>
+            <in>SDL_gemevents_c.h</in>
+            <in>SDL_gemmouse.c</in>
+            <in>SDL_gemmouse_c.h</in>
+            <in>SDL_gemvideo.c</in>
+            <in>SDL_gemvideo.h</in>
+            <in>SDL_gemwm.c</in>
+            <in>SDL_gemwm_c.h</in>
+          </df>
+          <df name="ggi">
+            <in>SDL_ggievents.c</in>
+            <in>SDL_ggievents_c.h</in>
+            <in>SDL_ggikeys.h</in>
+            <in>SDL_ggimouse.c</in>
+            <in>SDL_ggimouse_c.h</in>
+            <in>SDL_ggivideo.c</in>
+            <in>SDL_ggivideo.h</in>
+          </df>
+          <df name="ipod">
+            <in>SDL_ipodvideo.c</in>
+            <in>SDL_ipodvideo.h</in>
+          </df>
+          <df name="maccommon">
+            <in>SDL_lowvideo.h</in>
+            <in>SDL_macevents.c</in>
+            <in>SDL_macevents_c.h</in>
+            <in>SDL_macgl.c</in>
+            <in>SDL_macgl_c.h</in>
+            <in>SDL_mackeys.h</in>
+            <in>SDL_macmouse.c</in>
+            <in>SDL_macmouse_c.h</in>
+            <in>SDL_macwm.c</in>
+            <in>SDL_macwm_c.h</in>
+          </df>
+          <df name="macdsp">
+            <in>SDL_dspvideo.c</in>
+            <in>SDL_dspvideo.h</in>
+          </df>
+          <df name="macrom">
+            <in>SDL_romvideo.c</in>
+            <in>SDL_romvideo.h</in>
+          </df>
+          <df name="nanox">
+            <in>SDL_nxevents.c</in>
+            <in>SDL_nxevents_c.h</in>
+            <in>SDL_nximage.c</in>
+            <in>SDL_nximage_c.h</in>
+            <in>SDL_nxmodes.c</in>
+            <in>SDL_nxmodes_c.h</in>
+            <in>SDL_nxmouse.c</in>
+            <in>SDL_nxmouse_c.h</in>
+            <in>SDL_nxvideo.c</in>
+            <in>SDL_nxvideo.h</in>
+            <in>SDL_nxwm.c</in>
+            <in>SDL_nxwm_c.h</in>
+          </df>
+          <df name="nds">
+            <in>SDL_ndsevents.c</in>
+            <in>SDL_ndsevents_c.h</in>
+            <in>SDL_ndsmouse.c</in>
+            <in>SDL_ndsmouse_c.h</in>
+            <in>SDL_ndsvideo.c</in>
+            <in>SDL_ndsvideo.h</in>
+          </df>
+          <df name="os2fslib">
+            <in>SDL_os2fslib.c</in>
+            <in>SDL_os2fslib.h</in>
+            <in>SDL_vkeys.h</in>
+          </df>
+          <df name="photon">
+            <in>SDL_ph_events.c</in>
+            <in>SDL_ph_events_c.h</in>
+            <in>SDL_ph_gl.c</in>
+            <in>SDL_ph_gl.h</in>
+            <in>SDL_ph_image.c</in>
+            <in>SDL_ph_image_c.h</in>
+            <in>SDL_ph_modes.c</in>
+            <in>SDL_ph_modes_c.h</in>
+            <in>SDL_ph_mouse.c</in>
+            <in>SDL_ph_mouse_c.h</in>
+            <in>SDL_ph_video.c</in>
+            <in>SDL_ph_video.h</in>
+            <in>SDL_ph_wm.c</in>
+            <in>SDL_ph_wm_c.h</in>
+            <in>SDL_phyuv.c</in>
+            <in>SDL_phyuv_c.h</in>
+          </df>
+          <df name="picogui">
+            <in>SDL_pgevents.c</in>
+            <in>SDL_pgevents_c.h</in>
+            <in>SDL_pgvideo.c</in>
+            <in>SDL_pgvideo.h</in>
+          </df>
+          <df name="ps2gs">
+            <in>SDL_gsevents.c</in>
+            <in>SDL_gsevents_c.h</in>
+            <in>SDL_gskeys.h</in>
+            <in>SDL_gsmouse.c</in>
+            <in>SDL_gsmouse_c.h</in>
+            <in>SDL_gsvideo.c</in>
+            <in>SDL_gsvideo.h</in>
+            <in>SDL_gsyuv.c</in>
+            <in>SDL_gsyuv_c.h</in>
+          </df>
+          <df name="ps3">
+            <df name="spulibs">
+              <in>bilin_scaler.c</in>
+              <in>fb_writer.c</in>
+              <in>spu_common.h</in>
+              <in>yuv2rgb_converter.c</in>
+            </df>
+            <in>SDL_ps3events.c</in>
+            <in>SDL_ps3events_c.h</in>
+            <in>SDL_ps3video.c</in>
+            <in>SDL_ps3video.h</in>
+            <in>SDL_ps3yuv.c</in>
+            <in>SDL_ps3yuv_c.h</in>
+          </df>
+          <df name="qtopia">
+            <in>SDL_QPEApp.cc</in>
+            <in>SDL_QPEApp.h</in>
+            <in>SDL_QWin.cc</in>
+            <in>SDL_QWin.h</in>
+            <in>SDL_lowvideo.h</in>
+            <in>SDL_sysevents.cc</in>
+            <in>SDL_sysevents_c.h</in>
+            <in>SDL_sysmouse.cc</in>
+            <in>SDL_sysmouse_c.h</in>
+            <in>SDL_sysvideo.cc</in>
+            <in>SDL_syswm.cc</in>
+            <in>SDL_syswm_c.h</in>
+          </df>
+          <df name="quartz">
+            <in>CGS.h</in>
+            <in>SDL_QuartzEvents.m</in>
+            <in>SDL_QuartzGL.m</in>
+            <in>SDL_QuartzKeys.h</in>
+            <in>SDL_QuartzVideo.h</in>
+            <in>SDL_QuartzVideo.m</in>
+            <in>SDL_QuartzWM.h</in>
+            <in>SDL_QuartzWM.m</in>
+            <in>SDL_QuartzWindow.h</in>
+            <in>SDL_QuartzWindow.m</in>
+          </df>
+          <df name="riscos">
+            <in>SDL_riscosASM.S</in>
+            <in>SDL_riscosFullScreenVideo.c</in>
+            <in>SDL_riscosevents.c</in>
+            <in>SDL_riscosevents_c.h</in>
+            <in>SDL_riscosmouse.c</in>
+            <in>SDL_riscosmouse_c.h</in>
+            <in>SDL_riscossprite.c</in>
+            <in>SDL_riscostask.c</in>
+            <in>SDL_riscostask.h</in>
+            <in>SDL_riscosvideo.c</in>
+            <in>SDL_riscosvideo.h</in>
+            <in>SDL_wimppoll.c</in>
+            <in>SDL_wimpvideo.c</in>
+          </df>
+          <df name="svga">
+            <in>SDL_svgaevents.c</in>
+            <in>SDL_svgaevents_c.h</in>
+            <in>SDL_svgamouse.c</in>
+            <in>SDL_svgamouse_c.h</in>
+            <in>SDL_svgavideo.c</in>
+            <in>SDL_svgavideo.h</in>
+          </df>
+          <df name="symbian">
+            <df name="EKA1">
+              <in>SDL_epocevents.cpp</in>
+              <in>SDL_epocvideo.cpp</in>
+              <in>SDL_epocvideo.h</in>
+            </df>
+            <df name="EKA2">
+              <in>SDL_epocevents.cpp</in>
+              <in>SDL_epocvideo.cpp</in>
+              <in>SDL_epocvideo.h</in>
+              <in>dsa.cpp</in>
+              <in>dsa_new.cpp</in>
+              <in>dsa_old.cpp</in>
+            </df>
+            <in>SDL_epocevents_c.h</in>
+          </df>
+          <df name="vgl">
+            <in>SDL_vglevents.c</in>
+            <in>SDL_vglevents_c.h</in>
+            <in>SDL_vglmouse.c</in>
+            <in>SDL_vglmouse_c.h</in>
+            <in>SDL_vglvideo.c</in>
+            <in>SDL_vglvideo.h</in>
+          </df>
+          <df name="wincommon">
+            <in>SDL_lowvideo.h</in>
+            <in>SDL_sysevents.c</in>
+            <in>SDL_sysmouse.c</in>
+            <in>SDL_sysmouse_c.h</in>
+            <in>SDL_syswm.c</in>
+            <in>SDL_syswm_c.h</in>
+            <in>SDL_wingl.c</in>
+            <in>SDL_wingl_c.h</in>
+            <in>wmmsg.h</in>
+          </df>
+          <df name="windib">
+            <in>SDL_dibevents.c</in>
+            <in>SDL_dibevents_c.h</in>
+            <in>SDL_dibvideo.c</in>
+            <in>SDL_dibvideo.h</in>
+            <in>SDL_gapidibvideo.h</in>
+            <in>SDL_vkeys.h</in>
+          </df>
+          <df name="windx5">
+            <in>SDL_dx5events.c</in>
+            <in>SDL_dx5events_c.h</in>
+            <in>SDL_dx5video.c</in>
+            <in>SDL_dx5video.h</in>
+            <in>SDL_dx5yuv.c</in>
+            <in>SDL_dx5yuv_c.h</in>
+            <in>directx.h</in>
+          </df>
+          <df name="wscons">
+            <in>SDL_wsconsevents.c</in>
+            <in>SDL_wsconsevents_c.h</in>
+            <in>SDL_wsconsmouse.c</in>
+            <in>SDL_wsconsmouse_c.h</in>
+            <in>SDL_wsconsvideo.c</in>
+            <in>SDL_wsconsvideo.h</in>
+          </df>
+          <df name="x11">
+            <in>SDL_x11dga.c</in>
+            <in>SDL_x11dga_c.h</in>
+            <in>SDL_x11dyn.c</in>
+            <in>SDL_x11dyn.h</in>
+            <in>SDL_x11events.c</in>
+            <in>SDL_x11events_c.h</in>
+            <in>SDL_x11gamma.c</in>
+            <in>SDL_x11gamma_c.h</in>
+            <in>SDL_x11gl.c</in>
+            <in>SDL_x11gl_c.h</in>
+            <in>SDL_x11image.c</in>
+            <in>SDL_x11image_c.h</in>
+            <in>SDL_x11modes.c</in>
+            <in>SDL_x11modes_c.h</in>
+            <in>SDL_x11mouse.c</in>
+            <in>SDL_x11mouse_c.h</in>
+            <in>SDL_x11sym.h</in>
+            <in>SDL_x11video.c</in>
+            <in>SDL_x11video.h</in>
+            <in>SDL_x11wm.c</in>
+            <in>SDL_x11wm_c.h</in>
+            <in>SDL_x11yuv.c</in>
+            <in>SDL_x11yuv_c.h</in>
+          </df>
+          <df name="xbios">
+            <in>SDL_xbios.c</in>
+            <in>SDL_xbios.h</in>
+            <in>SDL_xbios_blowup.c</in>
+            <in>SDL_xbios_blowup.h</in>
+            <in>SDL_xbios_centscreen.c</in>
+            <in>SDL_xbios_centscreen.h</in>
+            <in>SDL_xbios_milan.c</in>
+            <in>SDL_xbios_milan.h</in>
+            <in>SDL_xbios_sb3.c</in>
+            <in>SDL_xbios_sb3.h</in>
+            <in>SDL_xbios_tveille.c</in>
+            <in>SDL_xbios_tveille.h</in>
+          </df>
+          <df name="xenon">
+          </df>
+          <df name="Xext">
+            <df name="extensions">
+              <in>Xext.h</in>
+              <in>Xinerama.h</in>
+              <in>Xv.h</in>
+              <in>Xvlib.h</in>
+              <in>Xvproto.h</in>
+              <in>extutil.h</in>
+              <in>panoramiXext.h</in>
+              <in>panoramiXproto.h</in>
+              <in>xf86dga.h</in>
+              <in>xf86dga1.h</in>
+              <in>xf86dga1str.h</in>
+              <in>xf86dgastr.h</in>
+              <in>xf86vmode.h</in>
+              <in>xf86vmstr.h</in>
+              <in>xme.h</in>
+            </df>
+            <df name="Xinerama">
+              <in>Xinerama.c</in>
+            </df>
+            <df name="XME">
+              <in>xme.c</in>
+            </df>
+            <df name="Xv">
+              <in>Xv.c</in>
+              <in>Xvlibint.h</in>
+            </df>
+            <df name="Xxf86dga">
+              <in>XF86DGA.c</in>
+              <in>XF86DGA2.c</in>
+            </df>
+            <df name="Xxf86vm">
+              <in>XF86VMode.c</in>
+            </df>
+          </df>
+          <in>SDL_RLEaccel.c</in>
+          <in>SDL_RLEaccel_c.h</in>
+          <in>SDL_blit.c</in>
+          <in>SDL_blit.h</in>
+          <in>SDL_blit_0.c</in>
+          <in>SDL_blit_1.c</in>
+          <in>SDL_blit_A.c</in>
+          <in>SDL_blit_N.c</in>
+          <in>SDL_bmp.c</in>
+          <in>SDL_cursor.c</in>
+          <in>SDL_cursor_c.h</in>
+          <in>SDL_gamma.c</in>
+          <in>SDL_glfuncs.h</in>
+          <in>SDL_leaks.h</in>
+          <in>SDL_pixels.c</in>
+          <in>SDL_pixels_c.h</in>
+          <in>SDL_stretch.c</in>
+          <in>SDL_stretch_c.h</in>
+          <in>SDL_surface.c</in>
+          <in>SDL_sysvideo.h</in>
+          <in>SDL_video.c</in>
+          <in>SDL_yuv.c</in>
+          <in>SDL_yuv_mmx.c</in>
+          <in>SDL_yuv_sw.c</in>
+          <in>SDL_yuv_sw_c.h</in>
+          <in>SDL_yuvfuncs.h</in>
+          <in>blank_cursor.h</in>
+          <in>default_cursor.h</in>
+          <in>e_log.h</in>
+          <in>e_pow.h</in>
+          <in>e_sqrt.h</in>
+          <in>math_private.h</in>
+          <in>mmx.h</in>
+        </df>
+        <in>SDL.c</in>
+        <in>SDL_error.c</in>
+        <in>SDL_error_c.h</in>
+        <in>SDL_fatal.c</in>
+        <in>SDL_fatal.h</in>
+      </df>
+      <df name="test">
+        <in>checkkeys.c</in>
+        <in>graywin.c</in>
+        <in>loopwave.c</in>
+        <in>picture.xbm</in>
+        <in>testalpha.c</in>
+        <in>testbitmap.c</in>
+        <in>testblitspeed.c</in>
+        <in>testcdrom.c</in>
+        <in>testcursor.c</in>
+        <in>testdyngl.c</in>
+        <in>testerror.c</in>
+        <in>testfile.c</in>
+        <in>testgamma.c</in>
+        <in>testgl.c</in>
+        <in>testhread.c</in>
+        <in>testiconv.c</in>
+        <in>testjoystick.c</in>
+        <in>testkeys.c</in>
+        <in>testloadso.c</in>
+        <in>testlock.c</in>
+        <in>testoverlay.c</in>
+        <in>testoverlay2.c</in>
+        <in>testpalette.c</in>
+        <in>testplatform.c</in>
+        <in>testsem.c</in>
+        <in>testsprite.c</in>
+        <in>testtimer.c</in>
+        <in>testver.c</in>
+        <in>testvidinfo.c</in>
+        <in>testwin.c</in>
+        <in>testwm.c</in>
+        <in>threadwin.c</in>
+        <in>torturethread.c</in>
+      </df>
+    </df>
+    <logicalFolder name="ExternalFiles"
+                   displayName="Important Files"
+                   projectFiles="false"
+                   kind="IMPORTANT_FILES_FOLDER">
+      <itemPath>Makefile.xenon</itemPath>
+    </logicalFolder>
+  </logicalFolder>
+  <sourceFolderFilter>^(nbproject)$</sourceFolderFilter>
+  <sourceRootList>
+    <Elem>.</Elem>
+  </sourceRootList>
+  <projectmakefile>Makefile.xenon</projectmakefile>
+  <confs>
+    <conf name="Default" type="0">
+      <toolsSet>
+        <remote-sources-mode>LOCAL_SOURCES</remote-sources-mode>
+        <compilerSet>default</compilerSet>
+      </toolsSet>
+      <makefileType>
+        <makeTool>
+          <buildCommandWorkingDir>.</buildCommandWorkingDir>
+          <buildCommand>${MAKE} -f Makefile.xenon</buildCommand>
+          <cleanCommand>${MAKE} -f Makefile.xenon clean</cleanCommand>
+          <executablePath></executablePath>
+          <cTool>
+            <incDir>
+              <pElem>/usr/local/xenon</pElem>
+              <pElem>/usr/local/xenon/include</pElem>
+              <pElem>/usr/local/xenon/usr/include</pElem>
+              <pElem>.</pElem>
+              <pElem>include</pElem>
+              <pElem>acinclude</pElem>
+            </incDir>
+          </cTool>
+          <ccTool>
+            <incDir>
+              <pElem>/usr/local/xenon</pElem>
+              <pElem>/usr/local/xenon/include</pElem>
+              <pElem>/usr/local/xenon/usr/include</pElem>
+              <pElem>.</pElem>
+              <pElem>include</pElem>
+              <pElem>acinclude</pElem>
+            </incDir>
+          </ccTool>
+        </makeTool>
+      </makefileType>
+    </conf>
+  </confs>
+</configurationDescriptor>
