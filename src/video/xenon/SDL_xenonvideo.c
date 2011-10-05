@@ -35,6 +35,7 @@
 #include "SDL_pixels_c.h"
 
 #include "SDL_xenonvideo.h" 
+#include "SDL_xenonevents.h"
 #include "../SDL_yuvfuncs.h"
 
 #include <xenos/xe.h>
@@ -51,6 +52,7 @@
 
 #define XENONVID_DRIVER_NAME "XENON"
 
+static struct XenosDevice 	_xe;
 int have_texture = 0;
 
 enum {
@@ -88,7 +90,15 @@ static void XENON_UpdateRects(_THIS, int numrects, SDL_Rect *rects);
 
 static int XENON_Available(void)
 {
-	printf("Found XENON SDL Video Device Driver\n");
+	xenon_make_it_faster(XENON_SPEED_FULL);
+	xenos_init(VIDEO_MODE_AUTO);
+	xenon_sound_init();
+
+	console_set_colors(0xD8444E00,0x00ffff00); // yellow on blue
+	console_init();
+	usb_init();
+	usb_do_poll();
+
 	return(1);
 }
 
@@ -101,7 +111,7 @@ static void XENON_DeleteDevice(SDL_VideoDevice *device)
 static SDL_VideoDevice *XENON_CreateDevice(int devindex)
 {
 	SDL_VideoDevice *device;
-
+ 
 	/* Initialize all variables that we clean on shutdown */
 	device = (SDL_VideoDevice *)malloc(sizeof(SDL_VideoDevice));
 	if ( device ) {
@@ -140,9 +150,8 @@ static SDL_VideoDevice *XENON_CreateDevice(int devindex)
 	device->IconifyWindow = NULL;
 	device->GrabInput = NULL;
 	device->GetWMInfo = NULL;
-	device->InitOSKeymap = NULL;
-//	device->PumpEvents = XENON_PumpEvents;
-	device->PumpEvents = NULL;			// for now
+	device->InitOSKeymap = XENON_InitOSKeymap;
+	device->PumpEvents = XENON_PumpEvents;
 	device->free = XENON_DeleteDevice;
 	device->SetGammaRamp = XENON_SetGammaRamp;
 
@@ -158,14 +167,6 @@ VideoBootStrap XENON_bootstrap = {
 
 int XENON_VideoInit(_THIS, SDL_PixelFormat *vformat)
 {	  
-    	xenon_make_it_faster(XENON_SPEED_FULL);
-    	xenos_init(VIDEO_MODE_AUTO);
-    	xenon_sound_init();
- 
-    	console_init();
-    	usb_init();
-    	usb_do_poll();
-
 	xe = &_xe;	
 	Xe_Init(xe);
  
@@ -184,9 +185,14 @@ int XENON_VideoInit(_THIS, SDL_PixelFormat *vformat)
 	screen = NULL;
  
 	if (fb)
-		return 1;
+	{
+		printf("XENON SDL Video: Created Framebuffer\n");
+		return 1;	
+	}
 	else
+        {
 		return 0;
+	}
 }
 
 const static SDL_Rect
@@ -364,7 +370,7 @@ SDL_Surface *XENON_SetVideoMode(_THIS, SDL_Surface *current,
 	// Resolve
 	Xe_Resolve(xe); 
 	Xe_Sync(xe);
-
+    
 	/* We're done */
 	return(current);
 }

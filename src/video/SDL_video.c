@@ -126,6 +126,9 @@ static VideoBootStrap *bootstrap[] = {
 #if SDL_VIDEO_DRIVER_CACA
 	&CACA_bootstrap,
 #endif
+#if SDL_VIDEO_DRIVER_XENON
+	&XENON_bootstrap,
+#endif
 #if SDL_VIDEO_DRIVER_DUMMY
 	&DUMMY_bootstrap,
 #endif
@@ -250,6 +253,7 @@ int SDL_VideoInit (const char *driver_name, Uint32 flags)
 
 	/* Create a zero sized video surface of the appropriate format */
 	video_flags = SDL_SWSURFACE;
+ 
 	SDL_VideoSurface = SDL_CreateRGBSurface(video_flags, 0, 0,
 				vformat.BitsPerPixel,
 				vformat.Rmask, vformat.Gmask, vformat.Bmask, 0);

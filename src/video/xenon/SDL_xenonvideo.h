@@ -43,7 +43,6 @@ struct SDL_PrivateVideoData {
     struct XenosSurface *SDL_Primary;
 };
 
-static struct XenosDevice 	_xe;
 struct XenosDevice  		*xe;
 struct XenosSurface 		*fb;
 struct XenosShader  		*sdl_ps;
