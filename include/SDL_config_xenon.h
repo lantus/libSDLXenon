@@ -24,15 +24,8 @@
 #define _SDL_config_xenon_h
   
 #include <stdarg.h>
-
-typedef signed char int8_t;
-typedef unsigned char uint8_t;
-typedef signed short int16_t;
-typedef unsigned short uint16_t;
-typedef signed int int32_t;
-typedef unsigned int uint32_t;
+#include <xetypes.h>
 typedef unsigned int size_t;
-typedef unsigned long uintptr_t;
 
 #define HAVE_MMAP 0
 
@@ -43,6 +36,7 @@ typedef unsigned long uintptr_t;
 #define SDL_LOADSO_DISABLED	1 
 #define SDL_THREADS_DISABLED	1 
 #define SDL_TIMERS_DISABLED	1
+#define SDL_VIDEO_DRIVER_XENON	1
 #define HAVE_MALLOC             1
 #define HAVE_MEMCPY             1
 #define HAVE_MEMSET             1

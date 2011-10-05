@@ -23,9 +23,6 @@
 #ifndef _SDL_xenonvideo_h
 #define _SDL_xenonvideo_h
 
-#include <xenos/xe.h>
-#include <xenos/xenos.h>
-#include <xenos/edram.h>>
 #include "SDL_mouse.h"
 #include "SDL_sysvideo.h"
 #include "SDL_mutex.h"
@@ -38,18 +35,22 @@
 typedef struct _VERTEX {
 		float x, y, z;
 		float rhw;
-		float tx, ty;		 
+		float u, v;		 
 } VERTEX; //our custom vertex with a constuctor for easier assignment
 
-
-VERTEX triangleStripVertices[4]; //the 4 vertices that make up our display rectangle
-
 struct SDL_PrivateVideoData {
-    int w, h;
-    void *buffer;
-    struct XenosSurface *surf;
+    int w, h; 
+    struct XenosSurface *SDL_Primary;
 };
 
+static struct XenosDevice 	_xe;
+struct XenosDevice  		*xe;
+struct XenosSurface 		*fb;
+struct XenosShader  		*sdl_ps;
+struct XenosShader  		*sdl_vs;
+struct XenosVertexBuffer 	*vb;
+
+unsigned char* screen;
 
 SDL_Overlay *XBOX_CreateYUVOverlay(_THIS, int width, int height, Uint32 format, SDL_Surface *display);
 int XBOX_DisplayYUVOverlay(_THIS, SDL_Overlay *overlay, SDL_Rect *src, SDL_Rect *dst);
