@@ -90,14 +90,11 @@ static void XENON_UpdateRects(_THIS, int numrects, SDL_Rect *rects);
 
 static int XENON_Available(void)
 {
-	xenon_make_it_faster(XENON_SPEED_FULL);
-	xenos_init(VIDEO_MODE_AUTO);
-	xenon_sound_init();
-
-	console_set_colors(0xD8444E00,0x00ffff00); // yellow on blue
-	console_init();
-	usb_init();
-	usb_do_poll();
+     	xenon_make_it_faster(XENON_SPEED_FULL);
+    	xenos_init(VIDEO_MODE_AUTO);
+    	console_init();
+    	usb_init();
+    	usb_do_poll();	
 
 	return(1);
 }
@@ -317,8 +314,8 @@ SDL_Surface *XENON_SetVideoMode(_THIS, SDL_Surface *current,
     	vb = Xe_CreateVertexBuffer(xe, 4 * sizeof(VERTEX));
     	VERTEX *Rect = Xe_VB_Lock(xe, vb, 0, 4 * sizeof (VERTEX), XE_LOCK_WRITE);
  
-        ScreenUv[UvTop] = ScreenUv[UvTop]*2;
-        ScreenUv[UvLeft] = ScreenUv[UvLeft]*2;
+        //ScreenUv[UvTop] = ScreenUv[UvTop]*2;
+        //ScreenUv[UvLeft] = ScreenUv[UvLeft]*2;
 
         // top left
         Rect[0].x = x;

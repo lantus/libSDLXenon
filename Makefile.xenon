@@ -22,6 +22,7 @@ SOURCES = \
 	src/stdlib/*.c \
 	src/thread/*.c \
 	src/timer/*.c \
+	src/timer/xenon/*.c \
 	src/video/*.c \
 	src/audio/dummy/*.c \
 	src/video/xenon/*.c \

@@ -34,8 +34,7 @@ typedef unsigned int size_t;
 #define SDL_CDROM_DISABLED	1 
 #define SDL_JOYSTICK_DISABLED	1 
 #define SDL_LOADSO_DISABLED	1 
-#define SDL_THREADS_DISABLED	1 
-#define SDL_TIMERS_DISABLED	1
+#define SDL_THREADS_DISABLED	1
 #define SDL_VIDEO_DRIVER_XENON	1
 #define HAVE_MALLOC             1
 #define HAVE_MEMCPY             1
