@@ -25,22 +25,34 @@
   
 #include <stdarg.h>
 #include <xetypes.h>
+#include <xenos/xe.h>
+#include <xenos/xenos.h>
+#include <xenos/edram.h>
+#include <xenos/xenos.h>
+#include <usb/usbmain.h>
+#include <console/console.h>
+#include <xenon_smc/xenon_smc.h>
+#include <xenon_soc/xenon_power.h>
+
 typedef unsigned int size_t;
 
 #define HAVE_MMAP 0
 
 #define SDL_BYTEORDER	SDL_BIG_ENDIAN 
-#define SDL_AUDIO_DRIVER_DUMMY	1
 #define SDL_CDROM_DISABLED	1 
 #define SDL_JOYSTICK_DISABLED	1 
 #define SDL_LOADSO_DISABLED	1 
-#define SDL_THREADS_DISABLED	1
+#define SDL_THREADS_XENON	1
+#define SDL_AUDIO_DRIVER_XENON	1
 #define SDL_VIDEO_DRIVER_XENON	1
+#define DEBUG_THREADS		1
+#define SDL_THREADS_DISABLED	1
 #define HAVE_MALLOC             1
 #define HAVE_MEMCPY             1
 #define HAVE_MEMSET             1
 #define HAVE_FREE               1
 #define HAVE_CALLOC             1
 #define HAVE_REALLOC            1
+#define HAVE_STDIO_H		1
 
 #endif /* _SDL_config_xenon_h */

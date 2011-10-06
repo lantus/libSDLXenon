@@ -90,12 +90,6 @@ static void XENON_UpdateRects(_THIS, int numrects, SDL_Rect *rects);
 
 static int XENON_Available(void)
 {
-     	xenon_make_it_faster(XENON_SPEED_FULL);
-    	xenos_init(VIDEO_MODE_AUTO);
-    	console_init();
-    	usb_init();
-    	usb_do_poll();	
-
 	return(1);
 }
 
@@ -182,8 +176,7 @@ int XENON_VideoInit(_THIS, SDL_PixelFormat *vformat)
 	screen = NULL;
  
 	if (fb)
-	{
-		printf("XENON SDL Video: Created Framebuffer\n");
+	{ 
 		return 1;	
 	}
 	else
@@ -222,6 +215,9 @@ SDL_Surface *XENON_SetVideoMode(_THIS, SDL_Surface *current,
 
 	int pixel_mode,pitch;
 	Uint32 Rmask, Gmask, Bmask;
+
+	if (bpp==8)
+		bpp=16;
  
 	switch(bpp)
 	{
@@ -230,7 +226,7 @@ SDL_Surface *XENON_SetVideoMode(_THIS, SDL_Surface *current,
 			Rmask = 0x00007c00;
 			Gmask = 0x000003e0;
 			Bmask = 0x0000001f;
-			pixel_mode = XE_FMT_5551;
+			pixel_mode = XE_FMT_5551 | XE_FMT_ARGB;
 			break;
 		case 8:
 		case 16:
@@ -238,12 +234,12 @@ SDL_Surface *XENON_SetVideoMode(_THIS, SDL_Surface *current,
 			Rmask = 0x0000f800;
 			Gmask = 0x000007e0;
 			Bmask = 0x0000001f;
-			pixel_mode = XE_FMT_565;
+			pixel_mode = XE_FMT_565 | XE_FMT_ARGB;
 			break;
 		case 24:
 		case 32:
 			pitch = width*4;
-			pixel_mode = XE_FMT_8888;
+			pixel_mode = XE_FMT_8888 | XE_FMT_ARGB;
 			Rmask = 0x00FF0000;
 			Gmask = 0x0000FF00;
 			Bmask = 0x000000FF;
@@ -314,8 +310,8 @@ SDL_Surface *XENON_SetVideoMode(_THIS, SDL_Surface *current,
     	vb = Xe_CreateVertexBuffer(xe, 4 * sizeof(VERTEX));
     	VERTEX *Rect = Xe_VB_Lock(xe, vb, 0, 4 * sizeof (VERTEX), XE_LOCK_WRITE);
  
-        //ScreenUv[UvTop] = ScreenUv[UvTop]*2;
-        //ScreenUv[UvLeft] = ScreenUv[UvLeft]*2;
+        ScreenUv[UvTop] = ScreenUv[UvTop]*2;
+        ScreenUv[UvLeft] = ScreenUv[UvLeft]*2;
 
         // top left
         Rect[0].x = x;
@@ -401,7 +397,7 @@ static int XENON_FlipHWSurface(_THIS, SDL_Surface *surface)
 	Xe_SetShader(xe, SHADER_TYPE_VERTEX, sdl_vs, 0);
 
 	// Draw
-	Xe_DrawPrimitive(xe, XE_PRIMTYPE_TRIANGLELIST, 0, 2);
+	Xe_DrawPrimitive(xe, XE_PRIMTYPE_TRIANGLELIST, 0, 1);
  
 	Xe_Resolve(xe); 
 	Xe_Sync(xe);

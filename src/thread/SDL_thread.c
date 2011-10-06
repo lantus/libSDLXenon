@@ -215,6 +215,7 @@ DECLSPEC SDL_Thread * SDLCALL SDL_CreateThread(int (SDLCALL *fn)(void *), void *
 	thread_args *args;
 	int ret;
 
+	printf("SDL_CreateThread();\n");
 	/* Allocate memory for the thread info structure */
 	thread = (SDL_Thread *)SDL_malloc(sizeof(*thread));
 	if ( thread == NULL ) {
@@ -235,6 +236,9 @@ DECLSPEC SDL_Thread * SDLCALL SDL_CreateThread(int (SDLCALL *fn)(void *), void *
 	args->data = data;
 	args->info = thread;
 	args->wait = SDL_CreateSemaphore(0);
+
+	printf("SDL_CreateSemaphore(0);\n");
+
 	if ( args->wait == NULL ) {
 		SDL_free(thread);
 		SDL_free(args);

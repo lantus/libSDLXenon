@@ -177,6 +177,9 @@ extern AudioBootStrap DART_bootstrap;
 #if SDL_AUDIO_DRIVER_EPOCAUDIO
 extern AudioBootStrap EPOCAudio_bootstrap; 
 #endif
+#if SDL_AUDIO_DRIVER_XENON
+extern AudioBootStrap XENONAudio_bootstrap; 
+#endif
 
 /* This is the current audio device */
 extern SDL_AudioDevice *current_audio;
