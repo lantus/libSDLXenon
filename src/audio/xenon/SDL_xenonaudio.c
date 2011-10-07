@@ -28,6 +28,9 @@
 #include "SDL_audio.h"
 #include "SDL_audio_c.h"
 #include "SDL_xenonaudio.h"
+
+
+
  
 /* Audio driver functions */
 static int XENON_OpenAudio(_THIS, SDL_AudioSpec *spec);
@@ -113,11 +116,14 @@ static void XENON_WaitAudio_BusyWait(_THIS)
 
 static void XENON_PlayAudio(_THIS)
 {       
-	memcpy(&pAudioBuffers[currentBuffer * mixlen], locked_buf, mixlen);
 	
-	while(xenon_sound_get_unplayed()>(4*mixlen)) udelay(50);
 	
-	xenon_sound_submit(&pAudioBuffers[currentBuffer * mixlen], mixlen);
+	//while(xenon_sound_get_unplayed()>(4*mixlen)) udelay(50);
+	
+         
+        memcpy(&pAudioBuffers[currentBuffer * mixlen], locked_buf, mixlen);
+        xenon_sound_submit(&pAudioBuffers[currentBuffer * mixlen], mixlen);
+         
 
 	currentBuffer++;
 	currentBuffer %= (NUM_BUFFERS);	       
@@ -163,35 +169,21 @@ static void XENON_CloseAudio(_THIS)
 static int XENON_OpenAudio(_THIS, SDL_AudioSpec *spec)
 {
 
-	/* Determine the audio parameters from the AudioSpec */
-	switch ( spec->format & 0xFF ) {
-		case 8:
-			/* Unsigned 8 bit audio data */
-			spec->format = AUDIO_U8;
-			silence = 0x80;			
-			break;
-		case 16:
-			/* Signed 16 bit audio data */
-			spec->format = AUDIO_S16;
-			silence = 0x00;
-			break;
-		default:
-			SDL_SetError("Unsupported audio format");
-			return(-1);
-	}
-
+	// Set up actual spec.
+        spec->freq      = 48000;
+        spec->format    = AUDIO_S16MSB;
+        spec->channels  = 2;        
+      
 	/* Update the fragment size as size in bytes */
 	SDL_CalculateAudioSpec(spec);
  
-	locked_buf = (unsigned char *)malloc(spec->size);
+	locked_buf = (unsigned char *)malloc(spec->size * 4);
 	 
 	/* Create the audio buffer to which we write */
-	NUM_BUFFERS = -1;
+	NUM_BUFFERS = 2;
 
-	if ( NUM_BUFFERS < 0 )
-		NUM_BUFFERS = 4;
 
-	pAudioBuffers = (unsigned char *)malloc(spec->size*NUM_BUFFERS);
+	pAudioBuffers = (unsigned char *)malloc(spec->size *NUM_BUFFERS * 4);
  	playing = 0;
 	mixlen = spec->size;
         

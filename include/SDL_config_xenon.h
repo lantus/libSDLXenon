@@ -40,9 +40,8 @@ typedef unsigned int size_t;
 
 #define HAVE_MMAP 0
 
-#define SDL_BYTEORDER	SDL_BIG_ENDIAN 
+#define SDL_BYTEORDER           SDL_BIG_ENDIAN 
 #define SDL_CDROM_DISABLED	1 
-#define SDL_JOYSTICK_DISABLED	1 
 #define SDL_LOADSO_DISABLED	1 
 #define SDL_THREADS_DISABLED	1       //ugh
 #define SDL_AUDIO_DRIVER_XENON	1

@@ -1,6 +1,6 @@
 # Makefile to build the SDL library
 
-INCLUDE = -I./include -I./src/video -I./src/audio
+INCLUDE = -I./include -I./src/video -I./src/audio -I./src/joystick
 CFLAGS  = -g -O2 $(INCLUDE)
 CC = xenon-gcc
 AR	= xenon-ar
@@ -27,7 +27,7 @@ SOURCES = \
 	src/audio/xenon/*.c \
 	src/video/xenon/*.c \
         src/video/xenon/*.s \
-	src/joystick/dummy/*.c \
+	src/joystick/xenon/*.c \
 	src/cdrom/dummy/*.c \
 	src/thread/xenon/*.c \
 	src/loadso/dummy/*.c \	
