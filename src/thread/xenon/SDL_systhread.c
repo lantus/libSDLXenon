@@ -37,6 +37,7 @@
 typedef struct thread_s{
     unsigned int lock  __attribute__ ((aligned (128)));
     unsigned int states;
+    void *args;
     int (*func)(void);
 }thread_t;
 
@@ -47,21 +48,21 @@ static volatile int hardwareThread = 1;
 
 void RunThread(void *data)
 {	
+        int currThread = mfspr(pir);        
+        data = thread_states[currThread].args; 
 	SDL_RunThread(data);
 	return;
 }
 
 
 int SDL_SYS_CreateThread(SDL_Thread *thread, void *args)
-{		
-	printf("Creating Thread\n");
+{			 
 	thread->handle = hardwareThread;
 	thread->threadid = hardwareThread;
 
+        thread_states[hardwareThread].args = args;
 	xenon_run_thread_task(hardwareThread,stack + (hardwareThread * 0x1000) - 0x100, RunThread);
-
-	printf("Created Thread\n");
-
+ 
 	hardwareThread++;
 
 	if (hardwareThread >=6)

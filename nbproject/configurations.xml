@@ -4,7 +4,25 @@
     <df name="libSDLXenon" root=".">
       <df name="acinclude">
       </df>
+      <df name="build">
+        <df name="Default">
+          <df name="GNU-Linux-x86">
+            <df name="tmp-packaging">
+              <df name="libSDLXenon">
+              </df>
+            </df>
+          </df>
+        </df>
+      </df>
       <df name="build-scripts">
+      </df>
+      <df name="dist">
+        <df name="Default">
+          <df name="GNU-Linux-x86">
+            <df name="package">
+            </df>
+          </df>
+        </df>
       </df>
       <df name="docs">
         <df name="html">
@@ -29,6 +47,7 @@
         <in>SDL_config_os2.h</in>
         <in>SDL_config_symbian.h</in>
         <in>SDL_config_win32.h</in>
+        <in>SDL_config_xenon.h</in>
         <in>SDL_copying.h</in>
         <in>SDL_cpuinfo.h</in>
         <in>SDL_endian.h</in>
@@ -179,6 +198,10 @@
             <in>SDL_dx5audio.c</in>
             <in>SDL_dx5audio.h</in>
             <in>directx.h</in>
+          </df>
+          <df name="xenon">
+            <in>SDL_xenonaudio.c</in>
+            <in>SDL_xenonaudio.h</in>
           </df>
           <in>SDL_audio.c</in>
           <in>SDL_audio_c.h</in>
@@ -472,6 +495,14 @@
             <in>win_ce_semaphore.c</in>
             <in>win_ce_semaphore.h</in>
           </df>
+          <df name="xenon">
+            <in>SDL_syscond.c</in>
+            <in>SDL_sysmutex.c</in>
+            <in>SDL_sysmutex_c.h</in>
+            <in>SDL_syssem.c</in>
+            <in>SDL_systhread.c</in>
+            <in>SDL_systhread_c.h</in>
+          </df>
           <in>SDL_systhread.h</in>
           <in>SDL_thread.c</in>
           <in>SDL_thread_c.h</in>
@@ -517,6 +548,9 @@
           </df>
           <df name="wince">
             <in>SDL_systimer.c</in>
+          </df>
+          <df name="xenon">
+            <in>SDL_xenontimer.c</in>
           </df>
           <in>SDL_systimer.h</in>
           <in>SDL_timer.c</in>
@@ -906,6 +940,15 @@
             <in>SDL_xbios_tveille.h</in>
           </df>
           <df name="xenon">
+            <df name="hlsl">
+            </df>
+            <in>SDL_xenonevents.c</in>
+            <in>SDL_xenonevents.h</in>
+            <in>SDL_xenonvideo.c</in>
+            <in>SDL_xenonvideo.h</in>
+            <in>prim_textured_pixel_shader.h</in>
+            <in>prim_textured_vertex_shader.h</in>
+            <in>shader_sdl.s</in>
           </df>
           <df name="Xext">
             <df name="extensions">

@@ -27,7 +27,7 @@
 #include "../SDL_timer_c.h"
 #include "SDL_error.h"
 
-#define TIMEBASE 100000
+#define TIMEBASE 1000
 
 void SDL_StartTicks(void)
 {
@@ -37,12 +37,12 @@ void SDL_StartTicks(void)
 
 Uint32 SDL_GetTicks(void)
 {
-	return mftb() / (PPC_TIMEBASE_FREQ / TIMEBASE);	
+	return mftb() / (PPC_TIMEBASE_FREQ / TIMEBASE );	
 }
 
 void SDL_Delay(Uint32 ms)
 {
-	udelay(ms);
+	mdelay(ms);                
 }
 
 int SDL_SYS_TimerInit(void)

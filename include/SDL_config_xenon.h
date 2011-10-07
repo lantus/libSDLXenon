@@ -24,6 +24,8 @@
 #define _SDL_config_xenon_h
   
 #include <stdarg.h>
+#include <string.h>
+#include <stdlib.h>
 #include <xetypes.h>
 #include <xenos/xe.h>
 #include <xenos/xenos.h>
@@ -42,11 +44,9 @@ typedef unsigned int size_t;
 #define SDL_CDROM_DISABLED	1 
 #define SDL_JOYSTICK_DISABLED	1 
 #define SDL_LOADSO_DISABLED	1 
-#define SDL_THREADS_XENON	1
+#define SDL_THREADS_DISABLED	1       //ugh
 #define SDL_AUDIO_DRIVER_XENON	1
 #define SDL_VIDEO_DRIVER_XENON	1
-#define DEBUG_THREADS		1
-#define SDL_THREADS_DISABLED	1
 #define HAVE_MALLOC             1
 #define HAVE_MEMCPY             1
 #define HAVE_MEMSET             1

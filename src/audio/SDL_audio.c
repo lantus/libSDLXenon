@@ -133,7 +133,7 @@ int SDLCALL SDL_RunAudio(void *audiop)
 	void  *udata;
 	void (SDLCALL *fill)(void *userdata,Uint8 *stream, int len);
 	int    silence;
-
+        
 	/* Perform any thread setup */
 	if ( audio->ThreadInit ) {
 		audio->ThreadInit(audio);
@@ -489,6 +489,7 @@ int SDL_OpenAudio(SDL_AudioSpec *desired, SDL_AudioSpec *obtained)
 	}
 #endif /* SDL_THREADS_DISABLED */
 
+        
 	/* Calculate the silence and size of the audio specification */
 	SDL_CalculateAudioSpec(desired);
 
@@ -546,7 +547,7 @@ int SDL_OpenAudio(SDL_AudioSpec *desired, SDL_AudioSpec *obtained)
 			}
 		}
 	}
-
+ 
 	/* Start the audio thread if necessary */
 	switch (audio->opened) {
 		case  1:
@@ -568,7 +569,7 @@ int SDL_OpenAudio(SDL_AudioSpec *desired, SDL_AudioSpec *obtained)
 			/* The audio is now playing */
 			break;
 	}
-
+   
 	return(0);
 }
 
@@ -580,9 +581,9 @@ SDL_audiostatus SDL_GetAudioStatus(void)
 	status = SDL_AUDIO_STOPPED;
 	if ( audio && audio->enabled ) {
 		if ( audio->paused ) {
-			status = SDL_AUDIO_PAUSED;
+			status = SDL_AUDIO_PAUSED;                        
 		} else {
-			status = SDL_AUDIO_PLAYING;
+			status = SDL_AUDIO_PLAYING;                         
 		}
 	}
 	return(status);
@@ -593,7 +594,7 @@ void SDL_PauseAudio (int pause_on)
 	SDL_AudioDevice *audio = current_audio;
 
 	if ( audio ) {
-		audio->paused = pause_on;
+		audio->paused = pause_on;                 
 	}
 }
 

@@ -36,7 +36,6 @@ static void XENON_PlayAudio(_THIS);
 static Uint8 *XENON_GetAudioBuf(_THIS);
 static void XENON_WaitDone(_THIS);
 static void XENON_CloseAudio(_THIS);
-static void XENON_ThreadInit(_THIS);
 
 /* Audio driver bootstrap functions */
 
@@ -97,12 +96,8 @@ static SDL_AudioDevice *Audio_CreateDevice(int devindex)
     	this->GetAudioBuf = XENON_GetAudioBuf;
     	this->CloseAudio = XENON_CloseAudio;
 
-	this->free = Audio_DeleteDevice;
-
-	/* Open the audio device */
-
-	xenon_sound_init();
-
+	this->free = Audio_DeleteDevice;                
+                
 	return this;
 }
 
@@ -111,19 +106,13 @@ AudioBootStrap XENONAudio_bootstrap = {
 	Audio_Available, Audio_CreateDevice
 };
 
-
-static void XENON_ThreadInit(_THIS)
-{
-	
-}
-
 static void XENON_WaitAudio_BusyWait(_THIS)
 {
 	 
 }
 
 static void XENON_PlayAudio(_THIS)
-{
+{       
 	memcpy(&pAudioBuffers[currentBuffer * mixlen], locked_buf, mixlen);
 	
 	while(xenon_sound_get_unplayed()>(4*mixlen)) udelay(50);
@@ -131,18 +120,18 @@ static void XENON_PlayAudio(_THIS)
 	xenon_sound_submit(&pAudioBuffers[currentBuffer * mixlen], mixlen);
 
 	currentBuffer++;
-	currentBuffer %= (NUM_BUFFERS);	
+	currentBuffer %= (NUM_BUFFERS);	       
 }
 
 static Uint8 *XENON_GetAudioBuf(_THIS)
-{
+{       
 	return(locked_buf);
 }
 
 static void XENON_WaitDone(_THIS)
 {
 	Uint8 *stream;
- 
+        
 	/* Wait for the playing chunk to finish */
 	stream = this->GetAudioBuf(this);
 	if ( stream != NULL ) {
@@ -205,6 +194,6 @@ static int XENON_OpenAudio(_THIS, SDL_AudioSpec *spec)
 	pAudioBuffers = (unsigned char *)malloc(spec->size*NUM_BUFFERS);
  	playing = 0;
 	mixlen = spec->size;
-
+        
 	return(0);
 }
