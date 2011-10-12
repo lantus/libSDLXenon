@@ -16,6 +16,16 @@
       </df>
       <df name="build-scripts">
       </df>
+      <df name="demos">
+        <df name="plasma-1.0">
+          <df name="build">
+          </df>
+          <df name="src">
+            <in>libxenon_miss.c</in>
+            <in>plasma.c</in>
+          </df>
+        </df>
+      </df>
       <df name="dist">
         <df name="Default">
           <df name="GNU-Linux-x86">
@@ -344,6 +354,9 @@
           </df>
           <df name="win32">
             <in>SDL_mmjoystick.c</in>
+          </df>
+          <df name="xenon">
+            <in>SDL_xenonjoystick.c</in>
           </df>
           <in>SDL_joystick.c</in>
           <in>SDL_joystick_c.h</in>

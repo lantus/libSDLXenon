@@ -121,8 +121,8 @@ static void XENON_PlayAudio(_THIS)
 	//while(xenon_sound_get_unplayed()>(4*mixlen)) udelay(50);
 	
          
-        memcpy(&pAudioBuffers[currentBuffer * mixlen], locked_buf, mixlen);
-        xenon_sound_submit(&pAudioBuffers[currentBuffer * mixlen], mixlen);
+        //memcpy(&pAudioBuffers[currentBuffer * mixlen], locked_buf, mixlen);
+        //xenon_sound_submit(&pAudioBuffers[currentBuffer * mixlen], mixlen);
          
 
 	currentBuffer++;
@@ -177,13 +177,13 @@ static int XENON_OpenAudio(_THIS, SDL_AudioSpec *spec)
 	/* Update the fragment size as size in bytes */
 	SDL_CalculateAudioSpec(spec);
  
-	locked_buf = (unsigned char *)malloc(spec->size * 4);
+	locked_buf = (unsigned char *)malloc(spec->size);
 	 
 	/* Create the audio buffer to which we write */
 	NUM_BUFFERS = 2;
 
 
-	pAudioBuffers = (unsigned char *)malloc(spec->size *NUM_BUFFERS * 4);
+	pAudioBuffers = (unsigned char *)malloc(spec->size *NUM_BUFFERS);
  	playing = 0;
 	mixlen = spec->size;
         
