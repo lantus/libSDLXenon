@@ -150,14 +150,15 @@ int SDL_InitSubSystem(Uint32 flags)
 int SDL_Init(Uint32 flags)
 {
     
-#if !defined (__XENON__)    
-	// ill just dump these here...
-     	xenon_make_it_faster(XENON_SPEED_FULL);
-    	xenos_init(VIDEO_MODE_AUTO);
-        xenon_sound_init();
-    	console_init();
-    	usb_init();
-    	usb_do_poll();
+#if defined (__XENON__)    
+	/* !!!! NOTE: THE CALLING CODE in main() needs to call these first !!!!*/
+        /* if SDL_Init() is called to late in the code with these functions it seems to crash libxenon **/
+     	//xenon_make_it_faster(XENON_SPEED_FULL);
+    	//xenos_init(VIDEO_MODE_AUTO);
+        //xenon_sound_init();
+    	//console_init();
+    	//usb_init();
+    	//usb_do_poll();
 #endif        
 
 #if !SDL_THREADS_DISABLED && SDL_THREAD_PTH
