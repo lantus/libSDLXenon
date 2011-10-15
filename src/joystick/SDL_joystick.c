@@ -538,8 +538,8 @@ int SDL_PrivateJoystickButton(SDL_Joystick *joystick, Uint8 button, Uint8 state)
 void SDL_JoystickUpdate(void)
 {
 	int i;
-
-	for ( i=0; SDL_joysticks[i]; ++i ) {
+          
+	for ( i=0; SDL_joysticks[i]; ++i ) {                
 		SDL_SYS_JoystickUpdate(SDL_joysticks[i]);
 	}
 }

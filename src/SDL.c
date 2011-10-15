@@ -152,7 +152,7 @@ int SDL_Init(Uint32 flags)
     
 #if defined (__XENON__)    
 	/* !!!! NOTE: THE CALLING CODE in main() needs to call these first !!!!*/
-        /* if SDL_Init() is called to late in the code with these functions it seems to crash libxenon **/
+        /* if SDL_Init() is called too late in the code with these functions it seems to crash libxenon **/
      	//xenon_make_it_faster(XENON_SPEED_FULL);
     	//xenos_init(VIDEO_MODE_AUTO);
         //xenon_sound_init();

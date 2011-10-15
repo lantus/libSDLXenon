@@ -29,8 +29,26 @@
 #include "SDL_audio_c.h"
 #include "SDL_xenonaudio.h"
 
+#define MAX_UNPLAYED 32768
+#define BUFFER_SIZE 65536
+ 
+static Uint32 dma_buffer[2048];
+ 
+static char buffer[BUFFER_SIZE]; 
+static unsigned int real_freq;
+static double freq_ratio;
+ 
+int buffer_size = 1024;
 
+static unsigned int thread_lock __attribute__ ((aligned (128))) =0;
 
+static unsigned char thread_stack[0x10000];
+static unsigned char thread_stack_get[0x10000];
+
+static volatile void * thread_buffer=NULL;
+static volatile int thread_bufsize=0;
+static int thread_bufmaxsize=0;
+static volatile int thread_terminate=0;
  
 /* Audio driver functions */
 static int XENON_OpenAudio(_THIS, SDL_AudioSpec *spec);
@@ -48,6 +66,49 @@ static int Audio_Available(void)
 	return(1);
 }
 
+static void inline play_buffer(void)
+{
+        int i;
+
+        while(xenon_sound_get_unplayed()>MAX_UNPLAYED);
+     
+        for(i=0;i<buffer_size/4;++i) ((int*)buffer)[i]=bswap_32(((int*)buffer)[i]);
+          
+        xenon_sound_submit(buffer,buffer_size);
+        
+         
+}
+
+static s16 prevLastSample[2]={0,0};
+
+void ResampleLinear(s16* pStereoSamples, s32 oldsamples, s16* pNewSamples, s32 newsamples)
+{
+        s32 newsampL, newsampR;
+        s32 i;
+         
+        for (i = 0; i < newsamples; ++i)
+        {
+                s32 io = i * oldsamples;
+                s32 old = io / newsamples;
+                s32 rem = io - old * newsamples;
+
+                old *= 2;
+ 
+                if (old==0){
+                        newsampL = prevLastSample[0] * (newsamples - rem) + pStereoSamples[0] * rem;
+                        newsampR = prevLastSample[1] * (newsamples - rem) + pStereoSamples[1] * rem;
+                }else{
+                        newsampL = pStereoSamples[old-2] * (newsamples - rem) + pStereoSamples[old] * rem;
+                        newsampR = pStereoSamples[old-1] * (newsamples - rem) + pStereoSamples[old+1] * rem;
+                }
+                
+                pNewSamples[2 * i] = newsampL / newsamples;
+                pNewSamples[2 * i + 1] = newsampR / newsamples;
+        }
+
+        prevLastSample[0]=pStereoSamples[oldsamples*2-2];
+        prevLastSample[1]=pStereoSamples[oldsamples*2-1];
+}
 
 static void XENON_Unload(void)
 {
@@ -116,35 +177,12 @@ static void XENON_WaitAudio_BusyWait(_THIS)
 
 static void XENON_PlayAudio(_THIS)
 {       
-	
-	
-	//while(xenon_sound_get_unplayed()>(4*mixlen)) udelay(50);
-	
-         
-        //memcpy(&pAudioBuffers[currentBuffer * mixlen], locked_buf, mixlen);
-        //xenon_sound_submit(&pAudioBuffers[currentBuffer * mixlen], mixlen);
-         
-
-	currentBuffer++;
-	currentBuffer %= (NUM_BUFFERS);	       
+              
 }
-
-static Uint8 *XENON_GetAudioBuf(_THIS)
-{       
-	return(locked_buf);
-}
-
+ 
 static void XENON_WaitDone(_THIS)
 {
-	Uint8 *stream;
-        
-	/* Wait for the playing chunk to finish */
-	stream = this->GetAudioBuf(this);
-	if ( stream != NULL ) {
-	memset(stream, silence, mixlen);
-	this->PlayAudio(this);
-	}
-	this->WaitAudio(this);
+	
 
  
  
@@ -153,39 +191,109 @@ static void XENON_WaitDone(_THIS)
 static void XENON_CloseAudio(_THIS)
 {
 
-	if (locked_buf)
-	{
-		free(locked_buf);
-		locked_buf = NULL;
-	}
+	
+}
 
-	if (pAudioBuffers)
-	{
-		free(pAudioBuffers);
-		pAudioBuffers = NULL;
-	}
+static void thread_enqueue(void * buffer,int size)
+{
+        while(thread_bufsize);
+      
+        lock(&thread_lock);
+        
+        if(thread_bufmaxsize<size){
+               thread_bufmaxsize=size;
+               thread_buffer=realloc((void*)thread_buffer,thread_bufmaxsize);
+        }
+
+        thread_bufsize=size;
+        memcpy((void*)thread_buffer,buffer,thread_bufsize);   
+        
+        unlock(&thread_lock);
+       
+}
+
+static void inline add_to_buffer(void* stream, unsigned int length){
+        unsigned int lengthLeft = length >> 2;
+        unsigned int rlengthLeft = ceil(lengthLeft / freq_ratio);
+        ResampleLinear((s16 *)stream,lengthLeft,(s16 *)buffer,rlengthLeft);
+        buffer_size=rlengthLeft<<2;
+        play_buffer();
+}
+
+static void thread_loop()
+{
+        static char * local_buffer[0x10000];
+        int local_bufsize=0;
+        int k;
+
+        while(!thread_terminate){
+            
+                short *stream = (short *)dma_buffer;
+                                     
+                // grab the audio
+                current_audio->spec.callback(
+                current_audio->spec.userdata,
+                (Uint8 *)dma_buffer,
+                2048);         
+                 
+                
+                // queue it up
+                thread_enqueue((short *)stream, 2048);            
+                                                                         
+                lock(&thread_lock);
+                              
+                if (thread_bufsize){                                                   
+                        local_bufsize=thread_bufsize;
+                        if (local_bufsize>sizeof(local_buffer)) local_bufsize=sizeof(local_buffer);
+                        memcpy(local_buffer,(void*)thread_buffer,local_bufsize);
+                        thread_bufsize-=local_bufsize;
+                }
+                
+                unlock(&thread_lock);
+
+                if (local_bufsize){         
+                        add_to_buffer(local_buffer,local_bufsize);
+                        local_bufsize=0;
+                }
+
+                for(k=0;k<100;++k) asm volatile("nop");               
+        }
+}
+
+static Uint8 *XENON_GetAudioBuf(_THIS)
+{       
+ 
+	return NULL;
 }
 
 static int XENON_OpenAudio(_THIS, SDL_AudioSpec *spec)
 {
-
-	// Set up actual spec.
-        spec->freq      = 48000;
+        
+        spec->freq      = 32000;
         spec->format    = AUDIO_S16MSB;
-        spec->channels  = 2;        
+        spec->channels  = 2;      
+        
+        freq_ratio = (double)spec->freq / 48000;        
       
 	/* Update the fragment size as size in bytes */
 	SDL_CalculateAudioSpec(spec);
- 
-	locked_buf = (unsigned char *)malloc(spec->size);
-	 
-	/* Create the audio buffer to which we write */
-	NUM_BUFFERS = 2;
-
-
-	pAudioBuffers = (unsigned char *)malloc(spec->size *NUM_BUFFERS);
+        
+      
  	playing = 0;
 	mixlen = spec->size;
         
-	return(0);
+        thread_lock=0;
+        thread_buffer=NULL;
+        thread_bufsize=0;
+        thread_bufmaxsize=0;
+        thread_terminate=0;
+
+        // Semaphores/Mutexes dont exist yet in libXenon so we dont want libSDL to handle
+        // the threading. Instead create our own thread here to handle the audio.
+ 
+        xenon_run_thread_task(1,&thread_stack[sizeof(thread_stack)-0x100],thread_loop); 
+                
+        // 1 means that libSDL wont call SDL_CreateThread();
+        
+	return(1);              
 }

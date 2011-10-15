@@ -22,8 +22,7 @@ char joyName[50];
 /* The private structure used to keep track of a joystick */
 struct joystick_hwdata
 { 
-        struct controller_data_s curpad;
-        struct controller_data_s oldpad;
+        struct controller_data_s curpad;      
 
 };
 
@@ -59,6 +58,7 @@ int SDL_SYS_JoystickOpen(SDL_Joystick *joystick)
         joystick->nbuttons = MAX_BUTTONS;
         joystick->naxes = MAX_AXES;
         joystick->nhats = MAX_HATS;
+        joystick->name  = "XENON SDL Gamepad";
         return(0);
 }
 
@@ -289,7 +289,7 @@ void SDL_SYS_JoystickUpdate(SDL_Joystick *joystick)
                 SDL_PrivateJoystickAxis(joystick, (Uint8)3, (Sint16)nYR);
 
     
-        joystick->hwdata->oldpad = joystick->hwdata->curpad;
+        //joystick->hwdata->oldpad = joystick->hwdata->curpad;
 }
 
 void SDL_SYS_JoystickClose(SDL_Joystick *joystick)

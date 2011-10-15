@@ -22,9 +22,10 @@
 
 #ifndef _SDL_xenonaudio_h
 #define _SDL_xenonaudio_h
-
+ 
+#include <math.h>
 #include <xenon_sound/sound.h>
-
+#include <byteswap.h>
 #include "SDL_sysaudio.h"
 
 /* Hidden "this" pointer for the video functions */
@@ -34,9 +35,7 @@ struct SDL_PrivateAudioData {
 	int NUM_BUFFERS;
 	int mixlen, silence;
 	int currentBuffer;
-	long playing;
-	Uint8 *locked_buf;
-	unsigned char* pAudioBuffers; 
+	long playing;	 
 };
 
 #define sound			(this->hidden->sound)
@@ -45,10 +44,8 @@ struct SDL_PrivateAudioData {
 #define NUM_BUFFERS		(this->hidden->NUM_BUFFERS)
 #define mixlen			(this->hidden->mixlen)
 #define silence			(this->hidden->silence)
-#define playing			(this->hidden->playing)
-#define locked_buf		(this->hidden->locked_buf)
-#define audio_event		(this->hidden->audio_event)
-#define pAudioBuffers	(this->hidden->pAudioBuffers)
+#define playing			(this->hidden->playing) 
+#define audio_event		(this->hidden->audio_event) 
 #define currentBuffer	(this->hidden->currentBuffer)
 
 #endif /* _SDL_xenonaudio_h */

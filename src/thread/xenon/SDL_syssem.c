@@ -43,8 +43,7 @@ SDL_sem *SDL_CreateSemaphore(Uint32 initial_value)
 		return NULL;
 	}
 	sem->count = initial_value;
-	sem->waiters_count = 0;
-        
+	sem->waiters_count = 0;       
 	return sem;
 }
 
@@ -68,7 +67,7 @@ int SDL_SemWaitTimeout(SDL_sem *sem, Uint32 timeout)
 {
 	int retval = 0;
 
-	 
+        SDL_Delay(timeout);
 
 	return retval;
 }

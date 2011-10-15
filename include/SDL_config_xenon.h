@@ -42,7 +42,7 @@ typedef unsigned int size_t;
 
 #define SDL_BYTEORDER           SDL_BIG_ENDIAN 
 #define SDL_LOADSO_DISABLED	1 
-#define SDL_THREADS_DISABLED	1       //ugh
+#define SDL_THREADS_XENON	1       //ugh
 #define SDL_AUDIO_DRIVER_XENON	1
 #define SDL_VIDEO_DRIVER_XENON	1
 #define SDL_HAS_64BIT_TYPE      1
