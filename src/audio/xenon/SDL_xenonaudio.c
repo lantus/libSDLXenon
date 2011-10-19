@@ -43,7 +43,6 @@ int buffer_size = 1024;
 static unsigned int thread_lock __attribute__ ((aligned (128))) =0;
 
 static unsigned char thread_stack[0x10000];
-static unsigned char thread_stack_get[0x10000];
 
 static volatile void * thread_buffer=NULL;
 static volatile int thread_bufsize=0;
@@ -81,7 +80,7 @@ static void inline play_buffer(void)
 
 static s16 prevLastSample[2]={0,0};
 
-void ResampleLinear(s16* pStereoSamples, s32 oldsamples, s16* pNewSamples, s32 newsamples)
+void ResampleLinear(s16* __restrict pStereoSamples, s32 oldsamples, s16* __restrict pNewSamples, s32 newsamples)
 {
         s32 newsampL, newsampR;
         s32 i;
@@ -190,7 +189,8 @@ static void XENON_WaitDone(_THIS)
 
 static void XENON_CloseAudio(_THIS)
 {
-
+        thread_terminate=1;
+        while(xenon_is_thread_task_running(2));
 	
 }
 
@@ -211,6 +211,17 @@ static void thread_enqueue(void * buffer,int size)
         unlock(&thread_lock);
        
 }
+
+static void XENON_ConvertU8(int16_t* __restrict aDest, uint8_t* __restrict aSource, uint32_t aCount)
+{
+        int i = 0;
+        for(i = 0; i != aCount; i ++)
+        {
+                int32_t tack = aSource[i];
+                aDest[i] = (tack * 256) - 32768;
+        }
+}
+
 
 static void inline add_to_buffer(void* stream, unsigned int length){
         unsigned int lengthLeft = length >> 2;
@@ -235,8 +246,7 @@ static void thread_loop()
                 current_audio->spec.userdata,
                 (Uint8 *)dma_buffer,
                 2048);         
-                 
-                
+  
                 // queue it up
                 thread_enqueue((short *)stream, 2048);            
                                                                          
@@ -291,7 +301,7 @@ static int XENON_OpenAudio(_THIS, SDL_AudioSpec *spec)
         // Semaphores/Mutexes dont exist yet in libXenon so we dont want libSDL to handle
         // the threading. Instead create our own thread here to handle the audio.
  
-        xenon_run_thread_task(1,&thread_stack[sizeof(thread_stack)-0x100],thread_loop); 
+        xenon_run_thread_task(2,&thread_stack[sizeof(thread_stack)-0x100],thread_loop); 
                 
         // 1 means that libSDL wont call SDL_CreateThread();
         

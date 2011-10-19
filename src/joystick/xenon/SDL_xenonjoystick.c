@@ -70,6 +70,11 @@ void SDL_SYS_JoystickUpdate(SDL_Joystick *joystick)
         unsigned long b=0; 
         int hat=0, changed=0;
 
+        /* Theres a bug with the current libXenon controller implementation
+           that sometimes causes analog values to 'stick' and retain the same x/y values
+           after release back to origin.
+           */
+        
         usb_do_poll();
         
         get_controller_data(&joystick->hwdata->curpad, joystick->index);
@@ -231,8 +236,8 @@ void SDL_SYS_JoystickUpdate(SDL_Joystick *joystick)
 
         // Axis - LStick
 
-        if ((joystick->hwdata->curpad.s1_x <= -10000) ||
-                (joystick->hwdata->curpad.s1_x >= 10000))
+        if ((joystick->hwdata->curpad.s1_x <= -14000) ||
+                (joystick->hwdata->curpad.s1_x >= 14000))
         {
                 if (joystick->hwdata->curpad.s1_x < 0)
                         joystick->hwdata->curpad.s1_x++;
@@ -245,8 +250,8 @@ void SDL_SYS_JoystickUpdate(SDL_Joystick *joystick)
                 SDL_PrivateJoystickAxis(joystick, (Uint8)0, (Sint16)nX);
 
 
-        if ((joystick->hwdata->curpad.s1_y <= -10000) ||
-                (joystick->hwdata->curpad.s1_y >= 10000))
+        if ((joystick->hwdata->curpad.s1_y <= -14000) ||
+                (joystick->hwdata->curpad.s1_y >= 14000))
         {
                 if (joystick->hwdata->curpad.s1_y < 0)
                         joystick->hwdata->curpad.s1_y++;
@@ -261,8 +266,8 @@ void SDL_SYS_JoystickUpdate(SDL_Joystick *joystick)
 
         // Axis - RStick
 
-        if ((joystick->hwdata->curpad.s2_x <= -10000) ||
-                (joystick->hwdata->curpad.s2_x >= 10000))
+        if ((joystick->hwdata->curpad.s2_x <= -14000) ||
+                (joystick->hwdata->curpad.s2_x >= 14000))
         {
                 if (joystick->hwdata->curpad.s2_x < 0)
                         joystick->hwdata->curpad.s2_x++;
@@ -275,8 +280,8 @@ void SDL_SYS_JoystickUpdate(SDL_Joystick *joystick)
                 SDL_PrivateJoystickAxis(joystick, (Uint8)2, (Sint16)nXR);
 
 
-        if ((joystick->hwdata->curpad.s2_y <= -10000) ||
-                (joystick->hwdata->curpad.s2_y >= 10000))
+        if ((joystick->hwdata->curpad.s2_y <= -14000) ||
+                (joystick->hwdata->curpad.s2_y >= 14000))
         {
                 if (joystick->hwdata->curpad.s2_y < 0)
                         joystick->hwdata->curpad.s2_y++;
@@ -286,10 +291,8 @@ void SDL_SYS_JoystickUpdate(SDL_Joystick *joystick)
                 nYR = 0;
 
         if ( nYR != joystick->axes[3] )
-                SDL_PrivateJoystickAxis(joystick, (Uint8)3, (Sint16)nYR);
-
-    
-        //joystick->hwdata->oldpad = joystick->hwdata->curpad;
+                SDL_PrivateJoystickAxis(joystick, (Uint8)3, (Sint16)nYR);    
+        
 }
 
 void SDL_SYS_JoystickClose(SDL_Joystick *joystick)

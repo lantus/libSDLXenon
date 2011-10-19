@@ -308,6 +308,7 @@
         <df name="hermes">
           <in>HeadMMX.h</in>
           <in>HeadX86.h</in>
+          <in>common.inc</in>
           <in>mmx_main.asm</in>
           <in>mmxp2_32.asm</in>
           <in>x86_main.asm</in>

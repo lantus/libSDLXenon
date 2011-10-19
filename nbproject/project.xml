@@ -6,7 +6,7 @@
             <name>libSDLXenon</name>
             <c-extensions>c,m</c-extensions>
             <cpp-extensions>cc,cpp</cpp-extensions>
-            <header-extensions>h,xbm</header-extensions>
+            <header-extensions>h,inc,xbm</header-extensions>
             <sourceEncoding>UTF-8</sourceEncoding>
             <make-dep-projects/>
             <sourceRootList>
