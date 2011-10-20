@@ -239,7 +239,7 @@ SDL_Surface *XENON_SetVideoMode(_THIS, SDL_Surface *current,
 		case 24:
 		case 32:
 			pitch = width*4;
-			pixel_mode = XE_FMT_8888;
+			pixel_mode = XE_FMT_8888 | XE_FMT_ARGB;
 			Rmask = 0x00FF0000;
 			Gmask = 0x0000FF00;
 			Bmask = 0x000000FF;
