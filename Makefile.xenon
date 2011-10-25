@@ -7,7 +7,7 @@ AR	= xenon-ar
 AS	= xenon-as
 RANLIB	= xenon-ranlib
 
-CFLAGS=$(INCLUDE) -ffunction-sections -fdata-sections  -mno-altivec -mhard-float -mcpu=cell -mtune=cell -m32 -fno-pic -mpowerpc64 -I$(DEVKITXENON)/usr/include/
+CFLAGS=$(INCLUDE) -ffunction-sections -fdata-sections  -mno-altivec -mhard-float -mcpu=cell -mtune=cell -m32 -fno-pic -mpowerpc64 -I/usr/xenon/include/
 
 CONFIG_H = include/SDL_config.h
 TARGET  = libSDL.a
@@ -54,7 +54,7 @@ clean:
 	rm -f $(TARGET) $(OBJECTS)
 
 install: all
-	rm -f $(DEVKITXENON)/usr/include/SDL/ -R
-	mkdir $(DEVKITXENON)/usr/include/SDL/
-	cp -r include/* $(DEVKITXENON)/usr/include/SDL/ 
-	cp $(TARGET) $(DEVKITXENON)/usr/lib/$(TARGET)
+	rm -f /usr/xenon/include/SDL/ -R
+	mkdir /usr/xenon/include/SDL/
+	cp -r include/* /usr/xenon/include/SDL/ 
+	cp $(TARGET) /usr/xenon/lib/$(TARGET)
