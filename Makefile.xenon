@@ -53,8 +53,13 @@ $(CONFIG_H):
 clean:
 	rm -f $(TARGET) $(OBJECTS)
 
+#install: all
+#	rm -f /usr/xenon/include/SDL/ -R
+#	mkdir /usr/xenon/include/SDL/
+#	cp -r include/* /usr/xenon/include/SDL/ 
+#	cp $(TARGET) /usr/xenon/lib/$(TARGET)
+
 install: all
-	rm -f /usr/xenon/include/SDL/ -R
-	mkdir /usr/xenon/include/SDL/
-	cp -r include/* /usr/xenon/include/SDL/ 
-	cp $(TARGET) /usr/xenon/lib/$(TARGET)
+	test -d $(DESTDIR)/$(PREFIX)/include/SDL/ || mkdir -p $(DESTDIR)/$(PREFIX)/include/SDL/
+	cp -r include/* $(DESTDIR)/$(PREFIX/include/SDL/
+	install -m 664 $(TARGET) $(DESTDIR)/$(PREFIX)/lib/$(TARGET)
