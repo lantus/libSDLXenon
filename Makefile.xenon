@@ -61,5 +61,5 @@ clean:
 
 install: all
 	test -d $(DESTDIR)/$(PREFIX)/include/SDL/ || mkdir -p $(DESTDIR)/$(PREFIX)/include/SDL/
-	cp -r include/* $(DESTDIR)/$(PREFIX/include/SDL/
+	cp -r include/* $(DESTDIR)/$(PREFIX)/include/SDL/
 	install -m 664 $(TARGET) $(DESTDIR)/$(PREFIX)/lib/$(TARGET)
